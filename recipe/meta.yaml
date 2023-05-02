@@ -45,7 +45,7 @@ about:
   license_file: LICENSE
   doc_url: https://github.com/naimetti/rfc3339-validator/blob/master/README.md
   dev_url: https://github.com/naimetti/rfc3339-validator
-  
+
 extra:
   recipe-maintainers:
     - bollwyvl
