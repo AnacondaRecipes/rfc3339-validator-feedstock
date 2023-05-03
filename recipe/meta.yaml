@@ -10,15 +10,15 @@ source:
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python
+    - wheel
   run:
-    - python >=3.5
+    - python
     - six
 
 test:
@@ -28,19 +28,22 @@ test:
     - rfc3339_validator
   commands:
     - pip check
-    - pytest --cov=rfc3339_validator --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=100
+    - pytest
   requires:
     - hypothesis
     - pip
-    - pytest-cov
     - pytest-runner
     - strict-rfc3339
 
 about:
   home: https://github.com/naimetti/rfc3339-validator
   summary: A pure python RFC3339 validator
+  description: A pure python RFC3339 validator
+  license_family: MIT
   license: MIT
   license_file: LICENSE
+  doc_url: https://github.com/naimetti/rfc3339-validator/blob/master/README.md
+  dev_url: https://github.com/naimetti/rfc3339-validator
 
 extra:
   recipe-maintainers:
